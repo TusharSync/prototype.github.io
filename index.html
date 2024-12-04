@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+      }
+      .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .nav-buttons button {
+        background-color: #555;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .nav-buttons button:hover {
+        background-color: #777;
+      }
+      .container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f4;
+      }
+      .welcome-message {
+        font-size: 24px;
+        font-weight: bold;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">My Dashboard</div>
+      <div class="nav-buttons">
+        <button onclick="navigate('home')">Home</button>
+        <button onclick="navigate('boards.html',false)">Boards</button>
+        <button onclick="navigate('brands.html',false)">Brands</button>
+        <button onclick="navigate('trend.html',false)">Trends</button>
+        <button onclick="navigate('profile')">Profile</button>
+        <button onclick="navigate('authenticatin.html',false)">
+          Login/Signup
+        </button>
+        <button onclick="navigate('logout')">Logout</button>
+        <button onclick="navigate('start_project.html',false)">
+          Start Designing
+        </button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="welcome-message">Welcome to the Dashboard!</div>
+    </div>
+
+    <script>
+      function navigate(page, dummy = true) {
+        if (dummy) {
+          alert(`Navigating to ${page}`);
+        } else {
+          window.location.href = `/${page}`;
+        }
+      }
+    </script>
+  </body>
+</html>

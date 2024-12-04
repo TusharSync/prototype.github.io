@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boards Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .board-card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+    }
+    .board-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .board-card h3 {
+      margin: 15px 0 10px;
+      font-size: 18px;
+      color: #333;
+    }
+    .board-card p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+    .buttons button {
+      padding: 8px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Boards</h1>
+    <div class="grid">
+      <div class="board-card">
+        <img src="thumbnail1.jpg" alt="Board 1 Thumbnail">
+        <h3>Board Name 1</h3>
+        <p>Designer: John Doe</p>
+        <div class="buttons">
+          <button onclick="viewBoard(1)">View</button>
+          <button onclick="edit3D(1)">Edit 3D</button>
+        </div>
+      </div>
+
+      <div class="board-card">
+        <img src="thumbnail2.jpg" alt="Board 2 Thumbnail">
+        <h3>Board Name 2</h3>
+        <p>Designer: Jane Smith</p>
+        <div class="buttons">
+          <button onclick="viewBoard(2)">View</button>
+          <button onclick="edit3D(2)">Edit 3D</button>
+        </div>
+      </div>
+
+      <div class="board-card">
+        <img src="thumbnail3.jpg" alt="Board 3 Thumbnail">
+        <h3>Board Name 3</h3>
+        <p>Designer: Alice Johnson</p>
+        <div class="buttons">
+          <button onclick="viewBoard(3)">View</button>
+          <button onclick="edit3D(3)">Edit 3D</button>
+        </div>
+      </div>
+
+      <!-- More board cards can be added here -->
+
+    </div>
+  </div>
+
+  <script>
+    function viewBoard(boardId) {
+      alert('Viewing Board ' + boardId);
+      // Add logic to navigate to the board view page
+    }
+
+    function edit3D(boardId) {
+      alert('Editing 3D for Board ' + boardId);
+      // Add logic to open the 3D editor
+    }
+  </script>
+
+</body>
+</html>

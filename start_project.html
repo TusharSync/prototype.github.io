@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Page</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-bottom: 1px solid #ddd;
+      }
+      .container {
+        display: flex;
+        flex: 1;
+      }
+      .tab-bar {
+        flex-basis: 20%;
+        background-color: #f9f9f9;
+        border-right: 1px solid #ddd;
+        padding: 10px;
+      }
+      .tab-bar button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        text-align: left;
+        cursor: pointer;
+      }
+      .tab-bar button:hover {
+        background-color: #eaeaea;
+      }
+      .expanded {
+        display: none;
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      .expanded.active {
+        display: block;
+      }
+      .canvas {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eaeaea;
+      }
+      .rhs-bar {
+        flex-basis: 20%;
+        background-color: #f9f9f9;
+        border-left: 1px solid #ddd;
+        padding: 10px;
+      }
+      .rhs-bar button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        text-align: left;
+        cursor: pointer;
+      }
+      .rhs-bar button:hover {
+        background-color: #eaeaea;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .grid-item {
+        text-align: center;
+        border: 1px solid #ddd;
+        padding: 5px;
+        background-color: #fff;
+      }
+      .grid-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="button-group">
+        <button onclick="window.location.href = `/index.html`">
+          Home
+        </button>
+
+        <button>New Project</button>
+        <button>Save</button>
+        <button>Undo</button>
+        <button>Redo</button>
+        <button>Grid View</button>
+      </div>
+      <button>My Projects</button>
+    </header>
+
+    <div class="container">
+      <!-- Left-Hand Side (LHS) -->
+      <div class="tab-bar">
+        <button onclick="toggleSection('objects')">Objects</button>
+        <div id="objects" class="expanded">
+          <input type="text" placeholder="Search Objects..." />
+          <p>Filters: Categories</p>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Object 1" />
+              <p>Object 1</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Object 2" />
+              <p>Object 2</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Object 3" />
+              <p>Object 3</p>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="toggleSection('accessories')">Accessories</button>
+        <div id="accessories" class="expanded">
+          <input type="text" placeholder="Search Accessories..." />
+          <p>Filters: Brand, Categories, Color</p>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Accessory 1" />
+              <p>Accessory 1</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Accessory 2" />
+              <p>Accessory 2</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Accessory 3" />
+              <p>Accessory 3</p>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="toggleSection('paint-objects')">Paint Objects</button>
+        <div id="paint-objects" class="expanded">
+          <input type="text" placeholder="Search Paint Objects..." />
+          <p>Filters: Brand, Categories, Color</p>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint Object 1" />
+              <p>Paint Object 1</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint Object 2" />
+              <p>Paint Object 2</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint Object 3" />
+              <p>Paint Object 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canvas Area (Center) -->
+      <div class="canvas">
+        <p>Canvas Area (Three.js integration)</p>
+      </div>
+
+      <!-- Right-Hand Side (RHS) -->
+      <div class="rhs-bar">
+        <button onclick="toggleSection('paints')">Paints</button>
+        <div id="paints" class="expanded">
+          <input type="text" placeholder="Search Paints..." />
+          <p>Filters: Brand, Categories, Color</p>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint 1" />
+              <p>Paint 1</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint 2" />
+              <p>Paint 2</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Paint 3" />
+              <p>Paint 3</p>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="toggleSection('materials')">Materials</button>
+        <div id="materials" class="expanded">
+          <input type="text" placeholder="Search Materials..." />
+          <p>Filters: Brand, Categories, Color, Textures</p>
+          <div class="grid">
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Material 1" />
+              <p>Material 1</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Material 2" />
+              <p>Material 2</p>
+            </div>
+            <div class="grid-item">
+              <img src="https://via.placeholder.com/100" alt="Material 3" />
+              <p>Material 3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        const allSections = document.querySelectorAll(".expanded");
+
+        // Close other sections
+        allSections.forEach((sec) => {
+          if (sec !== section) {
+            sec.classList.remove("active");
+          }
+        });
+
+        // Toggle the current section
+        section.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

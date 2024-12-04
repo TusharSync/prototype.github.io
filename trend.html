@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trends Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        /* Grid Styles */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .trend-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trend-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .trend-card h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .trend-card .posted-date {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Single Trend View */
+        .single-trend {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .single-trend h4 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .single-trend .posted-date {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .single-trend .description {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .single-trend img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .related-content {
+            margin-top: 40px;
+        }
+
+        .related-content h5 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .related-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .related-content li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Pro Pricing</a></li>
+            <li><a href="#">V-Samples</a></li>
+            <li><a href="#">For Suppliers</a></li>
+        </ul>
+    </div>
+
+    <!-- Trends Grid View -->
+     <h4>Trend view page</h4>
+    <div class="content">
+        <div class="trend-card">
+            <img src="https://via.placeholder.com/300" alt="Trend Image">
+            <h3><a href="#trend_view">Trend Title 1</a></h3>
+            <p class="posted-date">Posted on January 1, 2024</p>
+        </div>
+        <div class="trend-card">
+            <img src="https://via.placeholder.com/300" alt="Trend Image">
+            <h3><a href="#trend_view">Trend Title 2</a></h3>
+            <p class="posted-date">Posted on January 2, 2024</p>
+        </div>
+        <div class="trend-card">
+            <img src="https://via.placeholder.com/300" alt="Trend Image">
+            <h3><a href="#trend_view">Trend Title 3</a></h3>
+            <p class="posted-date">Posted on January 3, 2024</p>
+        </div>
+        <div class="trend-card">
+            <img src="https://via.placeholder.com/300" alt="Trend Image">
+            <h3><a href="#trend_view">Trend Title 4</a></h3>
+            <p class="posted-date">Posted on January 4, 2024</p>
+        </div>
+    </div>
+
+    <!-- Single Trend Blog View -->
+    <div class="single-trend" id="trend_view">
+        <h4>Trend Title 1</h4>
+        <p class="posted-date">Posted on January 1, 2024</p>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
+        <img src="https://via.placeholder.com/800x400" alt="Trend Image">
+
+        <div class="related-content">
+            <h5>Related Content</h5>
+            <ul>
+                <li><a href="#">Related Trend 1</a></li>
+                <li><a href="#">Related Trend 2</a></li>
+                <li><a href="#">Related Trend 3</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

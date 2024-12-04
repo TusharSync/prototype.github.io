@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group input[type="file"] {
+            padding: 5px;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .form-group a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 10px;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .google-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .google-btn:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="login-page">
+    <h2>Login</h2>
+    <form>
+        <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+        <div class="form-group">
+            <a href="forgot_pass.html">Forgot Password?</a>
+        </div>
+        <div class="form-group">
+            <a href="#" onclick="showSignup()">Create an Account</a>
+        </div>
+    </form>
+    <!-- Google Login Button -->
+    <button class="google-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+        Login with Google
+    </button>
+</div>
+
+<div class="container" id="signup-page" style="display: none;">
+    <h2>Signup</h2>
+    <form>
+        <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="signup-username">Username</label>
+            <input type="text" id="signup-username" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+            <label for="signup-firstname">First Name</label>
+            <input type="text" id="signup-firstname" placeholder="Enter your first name" required>
+        </div>
+        <div class="form-group">
+            <label for="signup-lastname">Last Name</label>
+            <input type="text" id="signup-lastname" placeholder="Enter your last name" required>
+        </div>
+        <div class="form-group">
+            <label for="signup-company">Company Name</label>
+            <input type="text" id="signup-company" placeholder="Enter your company name" required>
+        </div>
+        <div class="form-group">
+            <label for="signup-specialization">Specialization</label>
+            <select id="signup-specialization" required>
+                <option value="" disabled selected>Select your specialization</option>
+                <option value="software">Software</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="signup-companysize">Company Size</label>
+            <select id="signup-companysize" required>
+                <option value="" disabled selected>Select company size</option>
+                <option value="1-10">1-10</option>
+                <option value="11-50">11-50</option>
+                <option value="51-200">51-200</option>
+                <option value="200+">200+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="signup-industry">Industry</label>
+            <select id="signup-industry" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option value="tech">Technology</option>
+                <option value="finance">Finance</option>
+                <option value="health">Healthcare</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="signup-occupation">Occupation</label>
+            <select id="signup-occupation" required>
+                <option value="" disabled selected>Select your occupation</option>
+                <option value="developer">Developer</option>
+                <option value="manager">Manager</option>
+                <option value="designer">Designer</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="signup-units">Units</label>
+            <select id="signup-units" required>
+                <option value="" disabled selected>Select your units</option>
+                <option value="us">US</option>
+                <option value="metric">Metric</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="signup-profilepic">Profile Picture</label>
+            <input type="file" id="signup-profilepic" accept="image/*">
+        </div>
+        <div class="form-group">
+            <button type="submit">Signup</button>
+        </div>
+        <div class="form-group">
+            <a href="#" onclick="showLogin()">Already have an account? Login</a>
+        </div>
+    </form>
+    <!-- Google Login Button -->
+    <button class="google-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+        Signup with Google
+    </button>
+</div>
+
+<script>
+    function showSignup() {
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('signup-page').style.display = 'block';
+    }
+
+    function showLogin() {
+        document.getElementById('signup-page').style.display = 'none';
+        document.getElementById('login-page').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

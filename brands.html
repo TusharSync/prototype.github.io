@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Grid for Brands */
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .brand-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .brand-item img {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* Brand Portfolio Page */
+        .portfolio-page {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .brand-description {
+            width: 60%;
+        }
+
+        .brand-description p {
+            line-height: 1.6;
+        }
+
+        .brand-image {
+            width: 35%;
+        }
+
+        .brand-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Showrooms Grid */
+        .showrooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .showroom-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .showroom-item img {
+            width: 100%;
+            height: auto;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        /* Filters Section */
+        .filters {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .filters select, .filters button {
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        /* Showroom Preview */
+        .showroom-preview {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .showroom-preview img {
+            width: 100%;
+            height: auto;
+        }
+
+        .showroom-preview button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .showroom-preview button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Brand Portfolio</h1>
+</header>
+
+<div class="container">
+    <!-- Brands Grid -->
+    <section id="brands" class="brands-grid">
+        <div class="brand-item" onclick="openBrandPortfolio('brand1')">
+            <img src="https://via.placeholder.com/150" alt="Brand 1">
+            <div class="brand-name">Brand 1</div>
+        </div>
+        <div class="brand-item" onclick="openBrandPortfolio('brand2')">
+            <img src="https://via.placeholder.com/150" alt="Brand 2">
+            <div class="brand-name">Brand 2</div>
+        </div>
+        <div class="brand-item" onclick="openBrandPortfolio('brand3')">
+            <img src="https://via.placeholder.com/150" alt="Brand 3">
+            <div class="brand-name">Brand 3</div>
+        </div>
+    </section>
+
+    <!-- Brand Portfolio Page -->
+    <section id="brand-portfolio" class="portfolio-page" style="display: none;">
+        <div class="brand-description">
+            <h2 id="portfolio-brand-name">Brand 1</h2>
+            <p id="portfolio-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vehicula diam vitae tortor gravida, et feugiat urna cursus.
+            </p>
+        </div>
+        <div class="brand-image">
+            <img src="https://via.placeholder.com/350x250" alt="Brand Image">
+        </div>
+    </section>
+
+    <!-- Showrooms Section -->
+    <section id="showrooms" class="showrooms-grid" style="display: none;">
+        <div class="showroom-item">
+            <img src="https://via.placeholder.com/100" alt="Showroom 1">
+            <div>Showroom 1</div>
+            <button onclick="viewShowroomPreview('showroom1')">View Showroom</button>
+        </div>
+        <div class="showroom-item">
+            <img src="https://via.placeholder.com/100" alt="Showroom 2">
+            <div>Showroom 2</div>
+            <button onclick="viewShowroomPreview('showroom2')">View Showroom</button>
+        </div>
+        <div class="showroom-item">
+            <img src="https://via.placeholder.com/100" alt="Showroom 3">
+            <div>Showroom 3</div>
+            <button onclick="viewShowroomPreview('showroom3')">View Showroom</button>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section id="filters" class="filters" style="display: none;">
+        <select id="brand-category">
+            <option value="all">All Categories</option>
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+        </select>
+        <button onclick="applyFilters()">Apply Filters</button>
+    </section>
+
+    <!-- Showroom Preview -->
+    <section id="showroom-preview" class="showroom-preview" style="display: none;">
+        <img src="https://via.placeholder.com/500x300" alt="Showroom Preview">
+        <div>
+            <button onclick="editShowroom()">Edit</button>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Function to open brand portfolio
+    function openBrandPortfolio(brandId) {
+        // Hide brands grid and show brand portfolio
+        document.getElementById('brands').style.display = 'none';
+        document.getElementById('filters').style.display = 'none';
+        document.getElementById('brand-portfolio').style.display = 'flex';
+        document.getElementById('showrooms').style.display = 'grid';
+
+        // Set brand-specific data
+        let brandName = document.getElementById('portfolio-brand-name');
+        let description = document.getElementById('portfolio-description');
+
+        if (brandId === 'brand1') {
+            brandName.textContent = 'Brand 1';
+            description.textContent = 'Brand 1 description goes here.';
+        } else if (brandId === 'brand2') {
+            brandName.textContent = 'Brand 2';
+            description.textContent = 'Brand 2 description goes here.';
+        } else if (brandId === 'brand3') {
+            brandName.textContent = 'Brand 3';
+            description.textContent = 'Brand 3 description goes here.';
+        }
+    }
+
+    // Function to view showroom preview
+    function viewShowroomPreview(showroomId) {
+        // Show showroom preview section
+        document.getElementById('showroom-preview').style.display = 'block';
+        document.getElementById('showrooms').style.display = 'none';
+
+        // You could set showroom-specific data here if needed
+    }
+
+    // Function to edit showroom
+    function editShowroom() {
+        alert("Editing showroom...");
+    }
+
+    // Function to apply filters (placeholder)
+    function applyFilters() {
+        alert("Filters applied!");
+    }
+</script>
+
+</body>
+</html>
